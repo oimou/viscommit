@@ -5,7 +5,8 @@ GEN_OUTPUTFILE=$DIR/lib/gitlog_date.py
 GEN_CHARTS=$DIR/lib/visualize_commit.rscript
 OUTPUTFILE=/tmp/viscommit.csv
 R=/usr/bin/R
-USERNAME="Keiji Yahata"
+CHART_FILENAME=$1
+USERNAME=$2
 
 ${GEN_INPUTFILE} | ${GEN_OUTPUTFILE} "${USERNAME}" ${OUTPUTFILE}
-${R} -f ${GEN_CHARTS} --args $1
+${R} -f ${GEN_CHARTS} --args ${CHART_FILENAME}
