@@ -1,0 +1,27 @@
+library(zoo)
+
+# 引数読み込みo
+output_file <- commandArgs(trailingOnly = T)[1]
+
+# データの読み込み
+gitlog <- read.csv('/tmp/viscommit.csv')
+
+# 日付オブジェクトに変換
+date_obj <- as.Date(gitlog$date)
+
+# 移動平均
+ma <- rollmean(gitlog$num_commit, 3)
+
+# サイズを変更する
+png(output_file, width=600, height=600)
+plot.new()
+
+# 画像を三分割
+par(mfrow=(c(3,1)))
+
+plot(date_obj, gitlog$num_commit, type="l", xlab="span", xaxt="n", ylab="", col="red", main="number of commits")
+plot(ma, type="l", ylab="", col="blue", main="moving average", xlab="span", xaxt="n")
+hist(gitlog$num_commit, main="histogram", prob=T)
+lines(density(gitlog$num_commit), col="blue")
+
+dev.off()
