@@ -13,10 +13,8 @@ def main(validate_name, outputfile):
     date_matrix = {}
 
     for row in csv.reader(sys.stdin):
-        print row
         date = row[0]
         name = row[1].rstrip().strip()
-        print name
         if name == '%s' % validate_name:
             if date in date_matrix:
                 date_matrix[date] += 1
