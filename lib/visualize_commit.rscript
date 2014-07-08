@@ -19,8 +19,8 @@ plot.new()
 # 画像を三分割
 par(mfrow=(c(3,1)))
 
-plot(date_obj, gitlog$num_commit, type="l", xlab="span", xaxt="n", ylab="", col="red", main="number of commits")
-plot(ma, type="l", ylab="", col="blue", main="moving average", xlab="span", xaxt="n")
+plot(date_obj, gitlog$num_commit, type="l", xlab="span", xaxt="n", ylab="", col="red", main="number of commits", ylim=c(0, 50))
+plot(ma, type="l", ylab="", col="blue", main="moving average", xlab="span", xaxt="n", ylim=c(0, 50))
 hist(gitlog$num_commit, main="histogram", prob=T)
 lines(density(gitlog$num_commit), col="blue")
 
