@@ -23,7 +23,7 @@ plot.new()
 par(mfrow=(c(3,1)))
 
 plot(date_obj, gitlog$num_commit, type="l", xlab="span", xaxt="n", ylab="", col="red", main="number of commits", xlim=c(xfrom, xto), ylim=c(0, 50))
-plot(ma, type="l", ylab="", col="blue", main="moving average", xlab="span", xaxt="n", xlim=c(xfrom, xto), ylim=c(0, 50))
+plot(ma, type="l", ylab="", col="blue", main="moving average", xlab="span", xaxt="n", ylim=c(0, 50))
 hist(gitlog$num_commit, main="histogram", prob=T)
 lines(density(gitlog$num_commit), col="blue")
 
